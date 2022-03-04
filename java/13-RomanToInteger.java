@@ -5,7 +5,7 @@
 // If the current value is greater than or equal to the value of the symbol to the right, add the current symbol’s value to the total.
 // If the current value is smaller than the value of the symbol to the right, subtract the current symbol’s value from the total.
 
-public class Main {
+class RomanToInteger {
   public static void main(String[] args) {
     System.out.println("Hello World!");
     String s = "MCMXCIV";
