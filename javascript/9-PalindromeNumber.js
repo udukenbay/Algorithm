@@ -9,23 +9,27 @@
  */
 /////////**Solution 1 */
  var isPalindrome = function(x) {
-    let tmp = x;
-    let reversedNum = 0;
 
-    if(x>0) {
-        while(tmp > 0) {
-            //console.log(tmp%10);//lastDigit=tmp%10
-            reversedNum = Math.floor(reversedNum*10 + tmp%10);
-            tmp = Math.floor(tmp/10);
-        }
+    if(x < 0)
+        return false;
     
-        return x == reversedNum;
-    } else return false;
+    let original = x;
+    let rev = 0;
+    
+
+    while(x > 0) {
+        let digit = Math.floor(x % 10);
+        rev = Math.floor(rev * 10 + digit);
+        x = Math.floor(x / 10);
+    }
+
+    return original === rev;
 };
 
 console.log(isPalindrome(121));
 console.log(isPalindrome(-121));
 console.log(isPalindrome(10));
+console.log("=================================>");
 // //Follow up: Could you solve it without converting the integer to a string? ////////*****number manipulation */
 
 /////////**Solution 2 */
