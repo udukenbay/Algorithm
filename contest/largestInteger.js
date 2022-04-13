@@ -1,46 +1,35 @@
+// largestInteger.js
 /**
  * @param {number} num
  * @return {number}
  */
 var largestInteger = function(num) {
-    let arr = num.toString().split("");
-    let temp = 0;
-    
-    for(let i=0; i< arr.length; i++) {
-        //even
-        if(arr[i] % 2 == 0) {
-            console.log(arr[i]);
-            for(let j=1; j < arr.length-1; j++) {
-                if(arr[j] % 2 == 0) {
-                    temp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = temp;
-                    break;
-                } 
-            }
+    let arr = Array.from(String(num), Number);
+    let odd = [];
+    let even = [];
+    // вытащить в массивы even & odd digits
+    arr.forEach((item) => {
+        if(item % 2 == 0) {
+            even.push(item);
+        } else {
+            odd.push(item);
         }
-        //odd
-        else {
-            console.log(arr[i]);
-
-            for(let j=1; j < arr.length-1; j++) {
-                if(arr[j] % 2 != 0) {
-                    temp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = temp;
-                    break;
-                }
-            }
+    });
+    // sort them
+    even.sort((a, b) => (a-b));
+    odd.sort((a, b) => (a-b));
+    // а теперь перебираем если четное то вытаскиваем с четного массива, и наоборот только для нечетных
+    // и все это собираем в один контейнер string ans
+    let ans = "";
+    arr.forEach((item) => {
+        if(item % 2 == 0) {
+            ans += even.pop();
+        } else {
+            ans += odd.pop();
         }
-    }
+    });
     
-    return arr.join("");
-
-	// swap them
-    // const temp = arr0[last];
-    // arr0[last] = arr0[first];
-    // arr0[first] = temp;
-    
+    return ans;
 };
 
 console.log(largestInteger(65875));
@@ -48,3 +37,10 @@ console.log(largestInteger(1234));
 
 
 //https://leetcode.com/contest/weekly-contest-288/problems/largest-number-after-digit-swaps-by-parity/
+//Accepted
+
+
+
+// You are given a positive integer num. You may swap any two digits of num that have the same parity (i.e. both odd digits or both even digits).
+
+// Return the largest possible value of num after any number of swaps.
