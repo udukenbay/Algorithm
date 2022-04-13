@@ -5,13 +5,13 @@
  */
  var minimizeResult = function(expression) {
     let stack = [];
-    
+    //divide into two parts
     let front = expression.substring(0, expression.indexOf("+"));
     let back = expression.substring(expression.indexOf("+")+1, expression.length);
 
     let text = "";
     let expr = "";
-
+    //put brackets
     for(let i = 0; i < front.length; i++) {
         for(let j = 0; j < back.length; j++) {
             if(i === 0 && j === 0) {
@@ -32,12 +32,12 @@
 
             //save to stack
             stack.push({
-                key: eval(expr),
+                key: eval(expr),//math evaluate
                 value: text
             });
         }
     }
-
+    //from stack get minimum from evaluate
     // console.log(    Math.min.apply(Math, stack.map(function(o) { return o.key}))    );
     return stack.filter(el => el.key == Math.min.apply(Math, stack.map(function(o) { return o.key})))[0].value;
 };
