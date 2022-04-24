@@ -5,11 +5,29 @@
  * @return {number}
  */
  var maximumProduct = function(nums, k) {
+        nums = nums.sort((a, b) => b-a);
+        console.log(nums);
     
+    let smallest;
+    while(k > 0) {
+        console.log(nums);
+        smallest = nums.pop();
+        smallest++;
+        nums.push(smallest);
+        k--;
+    }
+
+    let res = 1;
+    nums.forEach((item) => {
+        res *= item;
+    });
+
+    return res;
 };
 
-console.log(maximumProduct([0,4], 5));
-console.log(maximumProduct([6,3,3,2], 2));
+console.log(maximumProduct([0,4], 5));//20
+console.log(maximumProduct([6,3,3,2], 2));//216
+console.log(maximumProduct([24,5,64,53,26,38], 54));//180820950
 
 // https://leetcode.com/contest/weekly-contest-288/problems/maximum-product-after-k-increments/
 
