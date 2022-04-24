@@ -1,6 +1,7 @@
 /**
  * @param {number[][]} nums
  * @return {number[]}
+ * https://leetcode.com/contest/weekly-contest-290/problems/intersection-of-multiple-arrays/
  */
  var intersection = function(nums) {
     let result = nums.reduce((a, b) => a.filter(c => b.includes(c)));

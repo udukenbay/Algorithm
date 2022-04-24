@@ -1,6 +1,13 @@
 /**
  * @param {number[][]} circles
  * @return {number}
+ * https://leetcode.com/contest/weekly-contest-290/problems/count-lattice-points-inside-a-circle/
+ * Constraints:
+
+1 <= circles.length <= 200
+circles[i].length == 3
+1 <= xi, yi <= 100
+1 <= ri <= min(xi, yi)
  */
  var countLatticePoints = function(circles) {
      //////// 1 Algo
