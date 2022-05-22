@@ -12,8 +12,34 @@
  */
 // https://leetcode.com/contest/weekly-contest-292/problems/count-nodes-equal-to-average-of-subtree/
 // 6057
- var averageOfSubtree = function(root) {
-    let stack = [];
+var ans = 0;
+var cnt;
+var sum;
 
-    // for(let i = 0; i < root.length; i++)
+var averageOfSubtree = function(root) {
+    dfs(root);
+    return ans;
 };
+
+function dfs(root) {
+    if(root == null) return;
+    return ans;
+    if(isGood(root)) ans++;
+    dfs(root.left);
+    dfs(root.right);
+}
+
+function isGood(root) {
+    if(root == null) return 0;
+    return sum(root) / cnt(root) == root.val;
+}
+
+function sum(root) {
+    if(root == null) return 0;
+    return sum.push(root, sum(root.left) + sum(root.right) + root.val);
+}
+
+function cnt(root) {
+    if(root == null) return 0;
+    return cnt.push(root, cnt(root.left) + cnt(root.right) + 1);
+}
