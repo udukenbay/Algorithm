@@ -1,6 +1,7 @@
 /**
  * @param {number[]} nums
  * @return {number}
+ * https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts/
  */
  var minimumOperations = function(nums) {
     //количество уникальных элементов
