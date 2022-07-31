@@ -8,20 +8,34 @@
  * @param {number} target
  * @return {number[]}
  */
- var twoSum = function(nums, target) {
-    let indexArray = [];
+//  var twoSum = function(nums, target) {
+    // let indexArray = [];
 
-    for(let i = 0; i < nums.length; i++) {
-        for(let j = i+1; j < nums.length; j++) {
-            if(nums[i] + nums[j] == target) {
-                indexArray.push(i);
-                indexArray.push(j);
-                break;
-            }
-        }
+    // for(let i = 0; i < nums.length; i++) {
+    //     for(let j = i+1; j < nums.length; j++) {
+    //         if(nums[i] + nums[j] == target) {
+    //             indexArray.push(i);
+    //             indexArray.push(j);
+    //             break;
+    //         }
+    //     }
+    // }
+
+    // return indexArray;
+// };
+
+// 2 - SOLUTION
+var twoSum = function(nums, target) {
+    let map = {};//val: index
+
+    for(let i=0; i<nums.length; i++) {
+        let n = nums[i];
+        if (target-n in map)
+            return [map[target-n], i];
+
+        map[n] = i;
     }
-
-    return indexArray;
+    return;
 };
 
 console.log(twoSum([2,7,11,15], 9));
