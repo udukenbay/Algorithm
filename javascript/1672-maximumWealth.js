@@ -29,8 +29,7 @@
           currentWealth += accounts[i][j];
       }
 
-      if(currentWealth > maxWealth)
-          maxWealth = currentWealth;
+      maxWealth = Math.max(maxWealth, currentWealth);
   }
 
   return maxWealth
