@@ -24,3 +24,10 @@
   // console.log(nums);
   return nums;
 };
+
+var sortedSquares = function(nums) {
+    nums.reduce(el => {return el*el})
+    //for(let i = 0; i < nums.length; i++) nums[i] = nums[i] * nums[i];
+
+    return nums.sort((a, b) => {return a-b})
+};
